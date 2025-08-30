@@ -15,7 +15,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: ["http://localhost:5173","https://todoapp-one-neon.vercel.app/"],
   credentials: true,
 }));
 app.use(express.json());
@@ -31,3 +31,4 @@ app.use("/api/auth", authRoutes);
 app.listen(port, () => {
   console.log(`✅ Server running on ${port}`);
 });
+
