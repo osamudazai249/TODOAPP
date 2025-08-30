@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom"
 
 const Todo = () => {
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
 
     const [todos, settodos] = useState([])
 
@@ -24,7 +26,7 @@ const Todo = () => {
 
     const fetchTodo = async () => {
 
-        const res = await fetch("http://localhost:3000/api/todos", {
+        const res = await fetch(`${API_URL}/api/todos`, {
             headers: {
                 "Content-Type": "application/json",
 
@@ -69,7 +71,7 @@ const Todo = () => {
 
 
 
-            const res = await fetch(`http://localhost:3000/api/todos/${edit}`, {
+            const res = await fetch(`${API_URL}/api/todos/${edit}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" }, credentials: "include",
                 body: JSON.stringify({ todo: todo })
@@ -97,7 +99,7 @@ const Todo = () => {
 
         } else {
 
-            const res = await fetch("http://localhost:3000/api/todos", {
+            const res = await fetch(`${API_URL}/api/todos`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" }, credentials: "include",
                 body: JSON.stringify({ todo })
@@ -152,7 +154,7 @@ const Todo = () => {
 
     const del = async (id) => {
 
-        const res = await fetch(`http://localhost:3000/api/todos/${id}`, {
+        const res = await fetch(`${API_URL}/api/todos/${id}`, {
             method: "DELETE",
 
 
@@ -170,7 +172,7 @@ const Todo = () => {
 
     }
     const handleComplete = async (id) => {
-        const res = await fetch(`http://localhost:3000/api/todos/complete/${id}`, {
+        const res = await fetch(`${API_URL}/api/todos/complete/${id}`, {
             method: "PATCH",
 
 
