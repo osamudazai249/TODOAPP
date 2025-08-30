@@ -94,8 +94,8 @@ router.post("/login", async (req, res) => {
 
 
       httpOnly:true,
-      secure:false,
-      sameSite:"Strict",
+      secure:true,
+      sameSite:"None",
       maxAge:15*60*1000
 
 
@@ -106,8 +106,8 @@ router.post("/login", async (req, res) => {
 
 
       httpOnly:true,
-      secure:false,
-      sameSite:"Strict",
+      secure:true,
+      sameSite:"None",
       maxAge:7*24*60*60*1000
     });
 
@@ -180,3 +180,4 @@ router.post("/logout", (req, res) => {
 
 
 export default router
+
