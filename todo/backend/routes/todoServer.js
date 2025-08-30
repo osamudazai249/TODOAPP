@@ -72,8 +72,8 @@ router.get("/todos", async (req, res) => {
 
 
       httpOnly: true,
-      secure: false,
-      sameSite: "Strict",
+      secure: true,
+      sameSite: "None",
       maxAge: 15 * 60 * 1000
 
 
@@ -181,8 +181,8 @@ router.get("/", async (req, res) => {
 
 
       httpOnly: true,
-      secure: false,
-      sameSite: "Strict",
+      secure: true,
+      sameSite: "None",
       maxAge: 15 * 60 * 1000
 
 
@@ -310,5 +310,6 @@ router.delete("/:id", async (req, res) => {
 
   res.json({ message: "Deleted successfully" });
 });
+
 
 export default router
