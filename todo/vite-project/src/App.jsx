@@ -14,6 +14,8 @@ import Login from "./pages/Login"
 
 function App() {
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
@@ -31,7 +33,7 @@ function App() {
 
   const check=async ()=>{
 
-    const res = await fetch("http://localhost:3000/api/todos",{
+    const res = await fetch(`${API_URL}/api/todos`,{
         headers: {
           "Content-Type": "application/json",
             
