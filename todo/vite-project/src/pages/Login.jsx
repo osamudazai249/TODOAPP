@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
+
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const [name, setname] = useState("")
     const [pass, setpass] = useState("")
 
@@ -22,7 +25,7 @@ const Login = () => {
 
     const saveUser = async () => {
 
-        const save = await fetch("http://localhost:3000/api/auth/register", {
+        const save = await fetch(`${API_URL}/api/auth/register`, {
             method: "POST", headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, pass })
         })
@@ -43,7 +46,7 @@ const Login = () => {
     const loginUser = async () => {
 
 
-        const save = await fetch("http://localhost:3000/api/auth/login", {
+        const save = await fetch(`${API_URL}/api/auth/login`, {
             method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include",
             body: JSON.stringify({ name, pass })
         })
